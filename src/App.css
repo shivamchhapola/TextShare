@@ -1,25 +1,10 @@
 .App {
   width: 100vw;
   height: 100vh;
-  background-color: #ffdb58;
-}
-
-.Navbar {
-  width: 100%;
-  position: sticky;
+  background-color: #fdfd96;
   display: flex;
-}
+  justify-content: center;
+  align-items: center;
 
-.Navbar > .Title {
-  background-color: black;
-  color: #e3dff2;
-  font-family: 'Lexend Mega', sans-serif;
-  font-weight: 700;
-  font-size: x-large;
-  padding: 1.5rem 1rem;
-  margin-left: 15vw;
-}
-
-.Navbar > .Socials {
-  display: flex;
+  --EditorMenuHeight: 2rem;
 }

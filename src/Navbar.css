@@ -1,0 +1,75 @@
+.Navbar {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+}
+
+.Title {
+  background-color: black;
+  color: #e3dff2;
+  font-family: 'Lexend Mega', sans-serif;
+  font-weight: 700;
+  font-size: x-large;
+  padding: 1.5rem 1rem;
+  position: absolute;
+  left: 10vw;
+}
+
+.Socials {
+  display: flex;
+  position: absolute;
+  right: 3vw;
+  gap: 1.5rem;
+}
+
+.Social {
+  --SocialBorder: 3px solid black;
+  --SocialDropShadow: 0.4rem 0.4rem black;
+  --SocialDropShadowHover: 0.4rem 0rem black;
+  padding: 1rem 0.25rem;
+  background-color: #ffa07a;
+  color: white;
+  width: 2rem;
+  position: relative;
+  bottom: 1.5rem;
+  transition: all 0.2s ease-in-out;
+  border-left: var(--SocialBorder);
+  border-right: var(--SocialBorder);
+  box-shadow: var(--SocialDropShadow);
+  cursor: pointer;
+}
+
+.SocialIcon {
+  position: relative;
+  top: 0.6rem;
+  border-radius: 100%;
+  padding: 0.25rem;
+}
+
+.Social::before {
+  content: '';
+  background-color: #ffa07a;
+  height: 2.5rem;
+  width: 2.5rem;
+  position: absolute;
+  right: -0.18rem;
+  top: 3.5rem;
+  border-radius: 0 0 100% 100%;
+  border-left: var(--SocialBorder);
+  border-right: var(--SocialBorder);
+  border-bottom: var(--SocialBorder);
+  box-shadow: var(--SocialDropShadow);
+  transition: all 0.2s ease-in-out;
+}
+
+.Social:hover {
+  bottom: 0rem;
+  box-shadow: var(--SocialDropShadowHover);
+}
+
+.Social:hover::after {
+  bottom: 0rem;
+  box-shadow: var(--SocialDropShadowHover);
+}

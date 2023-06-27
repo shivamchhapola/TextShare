@@ -1,0 +1,77 @@
+.Editor {
+  width: 70vw;
+  height: 60vh;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  outline: 0.2rem solid black;
+  background-color: #e3dff2;
+  box-shadow: 1rem 1rem black;
+}
+
+.EditorMenu {
+  position: relative;
+  height: var(--EditorMenuHeight);
+  display: flex;
+  flex-wrap: wrap;
+  overflow: hidden;
+  gap: 0.2rem;
+  padding: 0.1rem 2rem 0.1rem 0.2rem;
+  transition: all 0.1s ease-in-out;
+}
+
+.EditorMenuButton {
+  height: 1.3rem;
+  width: 1.3rem;
+  background-color: transparent;
+  color: black;
+  transition: all 0.1s ease-in-out;
+}
+
+.EditorMenuButtonActive {
+  height: 1.3rem;
+  width: 1.3rem;
+  background-color: black;
+  color: white;
+  transition: all 0.1s ease-in-out;
+}
+
+.EditorMenuButton:hover {
+  cursor: pointer;
+}
+
+.ExBtn {
+  position: absolute;
+  right: 0.2rem;
+}
+
+.ProseMirror {
+  height: calc(60vh - calc(var(--EditorMenuHeight) + 1.1rem));
+  overflow-y: scroll;
+  background-color: white;
+  padding: 0.5rem;
+  scrollbar-width: 10px;
+  scrollbar-color: #e3dff2;
+  scrollbar-track-color: #e3dff2;
+  transition: all 0.1s ease-in-out;
+}
+
+.ProseMirror:focus {
+  outline: none;
+}
+
+.ProseMirror::-webkit-scrollbar {
+  width: 10px;
+}
+
+.ProseMirror::-webkit-scrollbar-track {
+  background: #e3dff2;
+}
+
+.ProseMirror::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+.ProseMirror::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
