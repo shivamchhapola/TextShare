@@ -1,6 +1,6 @@
 .Editor {
   width: 70vw;
-  height: 60vh;
+  height: auto;
   background-color: black;
   display: flex;
   flex-direction: column;
@@ -13,32 +13,14 @@
   margin: 1rem;
 }
 
-.Editor input[type='color'] {
-  appearance: none;
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  border: none;
-  width: 2.2rem;
-  height: 1.2rem;
-  padding: 0;
-  outline: none;
-}
-
-.Editor input[type='color']::-webkit-color-swatch-wrapper {
-  padding: 0;
-}
-.Editor input[type='color']::-webkit-color-swatch {
-  border: none;
-}
-
 .EditorMenu {
   position: relative;
-  height: var(--EditorMenuHeight);
+  height: var(--EditorMenuHeight, 2rem);
   display: flex;
   flex-wrap: wrap;
   overflow: hidden;
   gap: 0.2rem;
-  padding: 0.1rem 2rem 0.1rem 0.2rem;
+  padding: 0.2rem 2rem 0.1rem 0.2rem;
   transition: all 0.1s ease-in-out;
 }
 
@@ -46,6 +28,7 @@
   border: 0.1rem solid black;
   height: 1.2rem;
   font-size: small;
+  margin: 0 0.2rem;
 }
 
 .EditorMenu select:focus {
@@ -98,7 +81,7 @@
 }
 
 .ProseMirror {
-  height: calc(60vh - calc(var(--EditorMenuHeight)));
+  height: 55vh;
   overflow-y: scroll;
   background-color: white;
   padding: 0.5rem;
@@ -135,6 +118,11 @@
   padding-left: 1rem;
 }
 
+hr.ProseMirror-selectednode {
+  margin-top: 0;
+  border-top: 1px solid #68cef8;
+}
+
 .ProseMirror:focus {
   outline: none;
 }
@@ -153,4 +141,24 @@
 
 .ProseMirror::-webkit-scrollbar-thumb:hover {
   background: #505050;
+}
+
+.popup-content {
+  padding: 0;
+  outline: 0.2rem solid black;
+  box-shadow: 0.75rem 0.75rem black;
+}
+
+.InsertImgBtn {
+  margin-top: 1rem;
+  border-radius: 0;
+  cursor: pointer;
+  background-color: #90ee90;
+  box-shadow: 0.2rem 0.2rem black;
+  transition: all 0.25s ease-in-out;
+}
+
+.InsertImgBtn:hover {
+  transform: translate(0.2rem, 0.2rem);
+  box-shadow: none;
 }

@@ -10,9 +10,22 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@tippyjs/react": "^4.2.6",
     "@tiptap/extension-color": "^2.0.3",
+    "@tiptap/extension-highlight": "^2.0.3",
+    "@tiptap/extension-image": "^2.0.3",
+    "@tiptap/extension-link": "^2.0.3",
+    "@tiptap/extension-placeholder": "^2.0.3",
+    "@tiptap/extension-subscript": "^2.0.3",
+    "@tiptap/extension-superscript": "^2.0.3",
+    "@tiptap/extension-table": "^2.0.3",
+    "@tiptap/extension-table-cell": "^2.0.3",
+    "@tiptap/extension-table-header": "^2.0.3",
+    "@tiptap/extension-table-row": "^2.0.3",
+    "@tiptap/extension-text-align": "^2.0.3",
     "@tiptap/extension-text-style": "^2.0.3",
     "@tiptap/extension-underline": "^2.0.3",
+    "@tiptap/extension-youtube": "^2.0.3",
     "@tiptap/pm": "^2.0.3",
     "@tiptap/react": "^2.0.3",
     "@tiptap/starter-kit": "^2.0.3",
@@ -21,18 +34,20 @@
     "react-dropdown": "^1.11.0",
     "react-google-font-loader": "^1.1.0",
     "react-icons": "^4.10.1",
-    "react-select": "^5.7.3"
+    "react-select": "^5.7.3",
+    "react-tooltip": "^5.16.1",
+    "reactjs-popup": "^2.0.5"
   },
   "devDependencies": {
     "@types/react": "^18.0.37",
-    "@types/react-dom": "^18.0.11",
+    "@types/react-dom": "^18.2.6",
     "@typescript-eslint/eslint-plugin": "^5.59.0",
     "@typescript-eslint/parser": "^5.59.0",
     "@vitejs/plugin-react-swc": "^3.0.0",
     "eslint": "^8.38.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.3.4",
-    "typescript": "^5.0.2",
+    "typescript": "^5.1.6",
     "vite": "^4.3.9"
   }
 }
