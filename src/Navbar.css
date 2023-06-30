@@ -28,12 +28,12 @@
   --SocialBorder: 3px solid black;
   --SocialDropShadow: 0.4rem 0.4rem black;
   --SocialDropShadowHover: 0.4rem 0rem black;
-  padding: 1rem 0.25rem;
+  padding: 0.5rem 0.25rem;
   background-color: #ffa07a;
   color: white;
   width: 2.5rem;
   position: relative;
-  bottom: 1.5rem;
+  bottom: 0.75rem;
   transition: all 0.2s ease-in-out;
   border-left: var(--SocialBorder);
   border-right: var(--SocialBorder);
@@ -55,7 +55,7 @@
   width: 2.5rem;
   position: absolute;
   right: -0.18rem;
-  top: 3.5rem;
+  top: 3rem;
   border-radius: 0 0 100% 100%;
   border-left: var(--SocialBorder);
   border-right: var(--SocialBorder);
@@ -69,7 +69,7 @@
   box-shadow: var(--SocialDropShadowHover);
 }
 
-.Social:hover::after {
+.Social:hover::before {
   bottom: 0rem;
   box-shadow: var(--SocialDropShadowHover);
 }
