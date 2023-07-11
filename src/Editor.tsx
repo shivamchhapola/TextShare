@@ -1,4 +1,5 @@
-import React, { useRef, useState } from 'react';
+//@ts-nocheck
+import React, { useRef, useState, useEffect, forwardRef } from 'react';
 
 import './Editor.css'; //css styles
 
@@ -78,7 +79,7 @@ import 'tippy.js/dist/tippy.css';
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
 
-export default function RichEditor() {
+export default function RichEditor({ setHTML }: any) {
   //open extened menu
   const [exMenuOpen, setExMenuOpen] = useState(false);
 
@@ -116,6 +117,9 @@ export default function RichEditor() {
       }),
     ],
     content: '<p>Start writing here...</p>',
+    onUpdate({ editor }) {
+      setHTML(editor.getHTML());
+    },
   });
 
   if (!editor) return null;

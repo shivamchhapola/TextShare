@@ -1,10 +1,12 @@
 .App {
   width: 100vw;
   height: 100vh;
-  background-color: #fdfd96;
+  background-color: #ffe866;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
+  flex-direction: column;
+  gap: 1.5rem;
 
   --EditorMenuHeight: 2rem;
 }

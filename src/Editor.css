@@ -1,12 +1,16 @@
 .Editor {
+  border-radius: 1rem;
   position: relative;
-  width: 70vw;
+  width: 75vw;
   background-color: black;
   display: flex;
   flex-direction: column;
-  outline: 0.2rem solid black;
+  border: 0.2rem solid black;
   background-color: #e3dff2;
-  box-shadow: 1.5rem 1.5rem black;
+  box-shadow: 1rem 1rem black;
+  padding: 0 0.25rem;
+  overflow: hidden;
+  font-family: 'Public Sans', sans-serif;
 }
 
 .Editor blockquote {

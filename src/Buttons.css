@@ -1,0 +1,30 @@
+.Buttons {
+  height: 5rem;
+  width: 70vw;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+.Buttons > button {
+  border: 0.2rem solid black;
+  box-shadow: 0.25rem 0.25rem black;
+  border-radius: 0.5rem;
+  font-family: 'Lexend Mega', sans-serif;
+  font-weight: 800;
+  transition: all 0.1s ease-in-out;
+}
+
+.Buttons > button:hover {
+  cursor: pointer;
+  box-shadow: none;
+  transform: translate(0.25rem, 0.25rem);
+}
+
+.OpenText {
+  background: #87ceeb;
+}
+
+.TextShare {
+  background: #90ee90;
+}

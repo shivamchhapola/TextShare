@@ -1,9 +1,8 @@
 .Navbar {
   width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
   display: flex;
+  user-select: none;
+  height: 6rem;
 }
 
 .Title {
@@ -12,7 +11,7 @@
   font-family: 'Lexend Mega', sans-serif;
   font-weight: 700;
   font-size: x-large;
-  padding: 1.5rem 1rem;
+  padding: 1rem;
   position: absolute;
   left: 10vw;
 }
@@ -26,15 +25,16 @@
 
 .Social {
   --SocialBorder: 3px solid black;
-  --SocialDropShadow: 0.4rem 0.4rem black;
-  --SocialDropShadowHover: 0.4rem 0rem black;
+  --SocialDropShadow: 0.3rem 0.3rem black;
+  --SocialDropShadowHover: 0.3rem 0rem black;
+  --transition: all 0.1s ease-in-out;
   padding: 0.5rem 0.25rem;
   background-color: #ffa07a;
   color: white;
   width: 2.5rem;
   position: relative;
   bottom: 0.75rem;
-  transition: all 0.2s ease-in-out;
+  transition: var(--transition);
   border-left: var(--SocialBorder);
   border-right: var(--SocialBorder);
   box-shadow: var(--SocialDropShadow);
@@ -61,7 +61,7 @@
   border-right: var(--SocialBorder);
   border-bottom: var(--SocialBorder);
   box-shadow: var(--SocialDropShadow);
-  transition: all 0.2s ease-in-out;
+  transition: var(--transition);
 }
 
 .Social:hover {
