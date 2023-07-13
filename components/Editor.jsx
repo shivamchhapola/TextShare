@@ -1,11 +1,9 @@
-//@ts-nocheck
-import React, { useRef, useState, useEffect, forwardRef } from 'react';
+import React, { useRef, useState } from 'react';
 
-import './Editor.css'; //css styles
+import Styles from '../styles/Editor.module.css'; //css styles
 
 //tiptap editor stuff
-import { useEditor, EditorContent, Editor } from '@tiptap/react';
-import { Level } from '@tiptap/extension-heading';
+import { useEditor, EditorContent } from '@tiptap/react';
 import { Color } from '@tiptap/extension-color';
 import StarterKit from '@tiptap/starter-kit';
 import Underline from '@tiptap/extension-underline';
@@ -75,11 +73,9 @@ import {
 
 //Tooltip and Popup
 import Tippy from '@tippyjs/react';
-import 'tippy.js/dist/tippy.css';
 import Popup from 'reactjs-popup';
-import 'reactjs-popup/dist/index.css';
 
-export default function RichEditor({ setHTML }: any) {
+export default function RichEditor({ setHTML }) {
   //open extened menu
   const [exMenuOpen, setExMenuOpen] = useState(false);
 
@@ -126,11 +122,11 @@ export default function RichEditor({ setHTML }: any) {
 
   return (
     <div
-      className="Editor"
+      className={Styles.Editor}
       style={
         exMenuOpen
-          ? ({ '--EditorMenuHeight': 'auto' } as React.CSSProperties)
-          : ({ '--EditorMenuHeight': '1.7rem' } as React.CSSProperties)
+          ? { '--EditorMenuHeight': 'auto' }
+          : { '--EditorMenuHeight': '1.7rem' }
       }>
       <EditorMenu
         editor={editor}
@@ -142,29 +138,21 @@ export default function RichEditor({ setHTML }: any) {
   );
 }
 
-function EditorMenu({
-  editor,
-  setExMenuOpen,
-  exMenuOpen,
-}: {
-  editor: Editor | null;
-  setExMenuOpen: React.Dispatch<React.SetStateAction<boolean>>;
-  exMenuOpen: boolean;
-}) {
-  const image = useRef<HTMLInputElement>(null);
-  const link = useRef<HTMLInputElement>(null);
-  const yt = useRef<HTMLInputElement>(null);
-  const ytw = useRef<HTMLInputElement>(null);
-  const yth = useRef<HTMLInputElement>(null);
+function EditorMenu({ editor, setExMenuOpen, exMenuOpen }) {
+  const image = useRef(null);
+  const link = useRef(null);
+  const yt = useRef(null);
+  const ytw = useRef(null);
+  const yth = useRef(null);
 
   return (
-    <div className="EditorMenu">
+    <div className={Styles.EditorMenu}>
       {/*Undo and Redo*/}
       <Tippy content="Undo">
         <div
           onClick={() => editor?.chain().focus().undo().run()}
-          className={`EditorMenuButton ${
-            !editor?.can().undo() ? 'EditorMenuButtonDeactive' : ''
+          className={`${Styles.EditorMenuButton} ${
+            !editor?.can().undo() ? Styles.EditorMenuButtonDeactive : ''
           }`}>
           <MdUndo size="1.25rem" />
         </div>
@@ -172,20 +160,20 @@ function EditorMenu({
       <Tippy content="Redo">
         <div
           onClick={() => editor?.chain().focus().redo().run()}
-          className={`EditorMenuButton ${
-            !editor?.can().redo() ? 'EditorMenuButtonDeactive' : ''
+          className={`${Styles.EditorMenuButton} ${
+            !editor?.can().redo() ? Styles.EditorMenuButtonDeactive : ''
           }`}>
           <MdRedo size="1.25rem" />
         </div>
       </Tippy>
-      <div className="EditorMenuDivider"></div>
+      <div className={Styles.EditorMenuDivider}></div>
 
       {/*Bold, Italic and underline*/}
       <Tippy content="Bold">
         <div
           onClick={() => editor?.chain().focus().toggleBold().run()}
-          className={`EditorMenuButton ${
-            editor?.isActive('bold') ? 'EditorMenuButtonActive' : ''
+          className={`${Styles.EditorMenuButton} ${
+            editor?.isActive('bold') ? Styles.EditorMenuButtonActive : ''
           }`}>
           <RxFontBold size="1.25rem" />
         </div>
@@ -194,8 +182,8 @@ function EditorMenu({
       <Tippy content="Italic">
         <div
           onClick={() => editor?.chain().focus().toggleItalic().run()}
-          className={`EditorMenuButton ${
-            editor?.isActive('italic') ? 'EditorMenuButtonActive' : ''
+          className={`${Styles.EditorMenuButton} ${
+            editor?.isActive('italic') ? Styles.EditorMenuButtonActive : ''
           }`}>
           <RxFontItalic size="1.25rem" />
         </div>
@@ -204,21 +192,21 @@ function EditorMenu({
       <Tippy content="Underline">
         <div
           onClick={() => editor?.chain().focus().toggleUnderline().run()}
-          className={`EditorMenuButton ${
-            editor?.isActive('underline') ? 'EditorMenuButtonActive' : ''
+          className={`${Styles.EditorMenuButton} ${
+            editor?.isActive('underline') ? Styles.EditorMenuButtonActive : ''
           }`}>
           <RxUnderline size="1.25rem" />
         </div>
       </Tippy>
-      <div className="EditorMenuDivider"></div>
+      <div className={Styles.EditorMenuDivider}></div>
 
       {/*Text Align*/}
       <Tippy content="Left">
         <div
           onClick={() => editor?.chain().focus().setTextAlign('left').run()}
-          className={`EditorMenuButton ${
+          className={`${Styles.EditorMenuButton} ${
             editor?.isActive({ textAlign: 'left' })
-              ? 'EditorMenuButtonActive'
+              ? Styles.EditorMenuButtonActive
               : ''
           }`}>
           <RxTextAlignLeft size="1.2rem" />
@@ -228,9 +216,9 @@ function EditorMenu({
       <Tippy content="Center">
         <div
           onClick={() => editor?.chain().focus().setTextAlign('center').run()}
-          className={`EditorMenuButton ${
+          className={`${Styles.EditorMenuButton} ${
             editor?.isActive({ textAlign: 'center' })
-              ? 'EditorMenuButtonActive'
+              ? Styles.EditorMenuButtonActive
               : ''
           }`}>
           <RxTextAlignCenter size="1.2rem" />
@@ -240,9 +228,9 @@ function EditorMenu({
       <Tippy content="Right">
         <div
           onClick={() => editor?.chain().focus().setTextAlign('right').run()}
-          className={`EditorMenuButton ${
+          className={`${Styles.EditorMenuButton} ${
             editor?.isActive({ textAlign: 'right' })
-              ? 'EditorMenuButtonActive'
+              ? Styles.EditorMenuButtonActive
               : ''
           }`}>
           <RxTextAlignRight size="1.2rem" />
@@ -252,22 +240,22 @@ function EditorMenu({
       <Tippy content="Justify">
         <div
           onClick={() => editor?.chain().focus().setTextAlign('justify').run()}
-          className={`EditorMenuButton ${
+          className={`${Styles.EditorMenuButton} ${
             editor?.isActive({ textAlign: 'justify' })
-              ? 'EditorMenuButtonActive'
+              ? Styles.EditorMenuButtonActive
               : ''
           }`}>
           <RxTextAlignJustify size="1.2rem" />
         </div>
       </Tippy>
-      <div className="EditorMenuDivider"></div>
+      <div className={Styles.EditorMenuDivider}></div>
 
       {/*Strikethrough, Sub and Superscript*/}
       <Tippy content="Strikethrough">
         <div
           onClick={() => editor?.chain().focus().toggleStrike().run()}
-          className={`EditorMenuButton ${
-            editor?.isActive('strike') ? 'EditorMenuButtonActive' : ''
+          className={`${Styles.EditorMenuButton} ${
+            editor?.isActive('strike') ? Styles.EditorMenuButtonActive : ''
           }`}>
           <RxStrikethrough size="1.25rem" />
         </div>
@@ -276,8 +264,8 @@ function EditorMenu({
       <Tippy content="Subscript">
         <div
           onClick={() => editor?.chain().focus().toggleSubscript().run()}
-          className={`EditorMenuButton ${
-            editor?.isActive('subscript') ? 'EditorMenuButtonActive' : ''
+          className={`${Styles.EditorMenuButton} ${
+            editor?.isActive('subscript') ? Styles.EditorMenuButtonActive : ''
           }`}>
           <LuSubscript size="1.25rem" />
         </div>
@@ -286,18 +274,18 @@ function EditorMenu({
       <Tippy content="Superscript">
         <div
           onClick={() => editor?.chain().focus().toggleSuperscript().run()}
-          className={`EditorMenuButton ${
-            editor?.isActive('superscript') ? 'EditorMenuButtonActive' : ''
+          className={`${Styles.EditorMenuButton} ${
+            editor?.isActive('superscript') ? Styles.EditorMenuButtonActive : ''
           }`}>
           <LuSuperscript size="1.25rem" />
         </div>
       </Tippy>
-      <div className="EditorMenuDivider"></div>
+      <div className={Styles.EditorMenuDivider}></div>
 
       {/*Color and Text Heading*/}
       <Tippy content="Text Color">
         <label
-          className="EditorMenuButton"
+          className={Styles.EditorMenuButton}
           style={{
             position: 'relative',
             color: editor?.getAttributes('textStyle').color ?? '#000',
@@ -305,7 +293,7 @@ function EditorMenu({
           <input
             style={{ visibility: 'hidden', position: 'absolute', left: 0 }}
             type="color"
-            onInput={(event: React.ChangeEvent<HTMLInputElement>) =>
+            onChange={(event) =>
               editor?.chain().focus().setColor(event.target.value).run()
             }
           />
@@ -315,14 +303,14 @@ function EditorMenu({
 
       <Tippy content="Highlight">
         <label
-          className="EditorMenuButton"
+          className={Styles.EditorMenuButton}
           style={{
             position: 'relative',
           }}>
           <input
             style={{ visibility: 'hidden', position: 'absolute', left: 0 }}
             type="color"
-            onInput={(event: React.ChangeEvent<HTMLInputElement>) =>
+            onChange={(event) =>
               editor
                 ?.chain()
                 .focus()
@@ -343,7 +331,7 @@ function EditorMenu({
               : editor
                   ?.chain()
                   .focus()
-                  .toggleHeading({ level: parseInt(e.target.value) as Level })
+                  .toggleHeading({ level: parseInt(e.target.value) })
                   .run();
           }}>
           <option value={0} style={{ fontWeight: 'normal' }}>
@@ -369,14 +357,14 @@ function EditorMenu({
           </option>
         </select>
       </Tippy>
-      <div className="EditorMenuDivider"></div>
+      <div className={Styles.EditorMenuDivider}></div>
 
       {/*Lists*/}
       <Tippy content="Toggle Bullet List">
         <div
           onClick={() => editor?.chain().focus().toggleBulletList().run()}
-          className={`EditorMenuButton ${
-            editor?.isActive('bulletList') ? 'EditorMenuButtonActive' : ''
+          className={`${Styles.EditorMenuButton} ${
+            editor?.isActive('bulletList') ? Styles.EditorMenuButtonActive : ''
           }`}>
           <MdFormatListBulleted size="1.25rem" />
         </div>
@@ -385,8 +373,8 @@ function EditorMenu({
       <Tippy content="Toggle Ordered List">
         <div
           onClick={() => editor?.chain().focus().toggleOrderedList().run()}
-          className={`EditorMenuButton ${
-            editor?.isActive('orderedList') ? 'EditorMenuButtonActive' : ''
+          className={`${Styles.EditorMenuButton} ${
+            editor?.isActive('orderedList') ? Styles.EditorMenuButtonActive : ''
           }`}>
           <MdFormatListNumbered size="1.25rem" />
         </div>
@@ -397,7 +385,7 @@ function EditorMenu({
           onClick={() =>
             editor?.chain().focus().splitListItem('listItem').run()
           }
-          className={`EditorMenuButton`}>
+          className={Styles.EditorMenuButton}>
           <MdFormatListBulletedAdd size="1.25rem" />
         </div>
       </Tippy>
@@ -405,7 +393,7 @@ function EditorMenu({
       <Tippy content="Sink List">
         <div
           onClick={() => editor?.chain().focus().sinkListItem('listItem').run()}
-          className={`EditorMenuButton`}>
+          className={Styles.EditorMenuButton}>
           <BsListNested size="1.25rem" />
         </div>
       </Tippy>
@@ -413,18 +401,18 @@ function EditorMenu({
       <Tippy content="Lift List">
         <div
           onClick={() => editor?.chain().focus().liftListItem('listItem').run()}
-          className={`EditorMenuButton`}>
+          className={Styles.EditorMenuButton}>
           <LuListTree size="1.25rem" />
         </div>
       </Tippy>
-      <div className="EditorMenuDivider"></div>
+      <div className={Styles.EditorMenuDivider}></div>
 
       {/*Blockquote, Code and CodeBlock*/}
       <Tippy content="Blockquote">
         <div
           onClick={() => editor?.chain().focus().toggleBlockquote().run()}
-          className={`EditorMenuButton ${
-            editor?.isActive('blockquote') ? 'EditorMenuButtonActive' : ''
+          className={`${Styles.EditorMenuButton} ${
+            editor?.isActive('blockquote') ? Styles.EditorMenuButtonActive : ''
           }`}>
           <TbBlockquote size="1.25rem" />
         </div>
@@ -433,7 +421,7 @@ function EditorMenu({
       <Tippy content="Horizontal Rule">
         <div
           onClick={() => editor?.chain().focus().setHorizontalRule().run()}
-          className={`EditorMenuButton`}>
+          className={Styles.EditorMenuButton}>
           <MdHorizontalRule size="1.25rem" />
         </div>
       </Tippy>
@@ -441,8 +429,8 @@ function EditorMenu({
       <Tippy content="Code">
         <div
           onClick={() => editor?.chain().focus().toggleCode().run()}
-          className={`EditorMenuButton ${
-            editor?.isActive('code') ? 'EditorMenuButtonActive' : ''
+          className={`${Styles.EditorMenuButton} ${
+            editor?.isActive('code') ? Styles.EditorMenuButtonActive : ''
           }`}>
           <MdCode size="1.25rem" />
         </div>
@@ -451,8 +439,8 @@ function EditorMenu({
       <Tippy content="Codeblock">
         <div
           onClick={() => editor?.chain().focus().toggleCodeBlock().run()}
-          className={`EditorMenuButton ${
-            editor?.isActive('codeBlock') ? 'EditorMenuButtonActive' : ''
+          className={`${Styles.EditorMenuButton} ${
+            editor?.isActive('codeBlock') ? Styles.EditorMenuButtonActive : ''
           }`}>
           <MdTerminal size="1.25rem" />
         </div>
@@ -461,11 +449,11 @@ function EditorMenu({
       <Tippy content="Hardbreak">
         <div
           onClick={() => editor?.chain().focus().setHardBreak().run()}
-          className={`EditorMenuButton`}>
+          className={Styles.EditorMenuButton}>
           <VscNewline size="1.25rem" />
         </div>
       </Tippy>
-      <div className="EditorMenuDivider"></div>
+      <div className={Styles.EditorMenuDivider}></div>
 
       {/*Table Stuff*/}
       <Tippy content="Insert Table">
@@ -477,7 +465,7 @@ function EditorMenu({
               .insertTable({ rows: 3, cols: 3, withHeaderRow: true })
               .run()
           }
-          className={`EditorMenuButton`}>
+          className={Styles.EditorMenuButton}>
           <TbTablePlus size="1.125rem" />
         </div>
       </Tippy>
@@ -485,7 +473,7 @@ function EditorMenu({
       <Tippy content="Add Column before">
         <div
           onClick={() => editor?.chain().focus().addColumnBefore().run()}
-          className={`EditorMenuButton`}>
+          className={Styles.EditorMenuButton}>
           <RiInsertColumnLeft size="1.2rem" />
         </div>
       </Tippy>
@@ -493,7 +481,7 @@ function EditorMenu({
       <Tippy content="Add Column after">
         <div
           onClick={() => editor?.chain().focus().addColumnAfter().run()}
-          className={`EditorMenuButton`}>
+          className={Styles.EditorMenuButton}>
           <RiInsertColumnRight size="1.2rem" />
         </div>
       </Tippy>
@@ -501,7 +489,7 @@ function EditorMenu({
       <Tippy content="Remove Column">
         <div
           onClick={() => editor?.chain().focus().deleteColumn().run()}
-          className={`EditorMenuButton`}>
+          className={Styles.EditorMenuButton}>
           <RiDeleteColumn size="1.2rem" />
         </div>
       </Tippy>
@@ -509,7 +497,7 @@ function EditorMenu({
       <Tippy content="Add Row before">
         <div
           onClick={() => editor?.chain().focus().addRowBefore().run()}
-          className={`EditorMenuButton`}>
+          className={Styles.EditorMenuButton}>
           <RiInsertRowTop size="1.2rem" />
         </div>
       </Tippy>
@@ -517,7 +505,7 @@ function EditorMenu({
       <Tippy content="Add Row after">
         <div
           onClick={() => editor?.chain().focus().addRowAfter().run()}
-          className={`EditorMenuButton`}>
+          className={Styles.EditorMenuButton}>
           <RiInsertRowBottom size="1.2rem" />
         </div>
       </Tippy>
@@ -525,7 +513,7 @@ function EditorMenu({
       <Tippy content="Remove Row">
         <div
           onClick={() => editor?.chain().focus().deleteRow().run()}
-          className={`EditorMenuButton`}>
+          className={Styles.EditorMenuButton}>
           <RiDeleteRow size="1.2rem" />
         </div>
       </Tippy>
@@ -533,7 +521,7 @@ function EditorMenu({
       <Tippy content="Remove Table">
         <div
           onClick={() => editor?.chain().focus().deleteTable().run()}
-          className={`EditorMenuButton`}>
+          className={Styles.EditorMenuButton}>
           <TbTableOff size="1.2rem" />
         </div>
       </Tippy>
@@ -541,7 +529,7 @@ function EditorMenu({
       <Tippy content="Merge or Split Cell">
         <div
           onClick={() => editor?.chain().focus().mergeOrSplit().run()}
-          className={`EditorMenuButton`}>
+          className={Styles.EditorMenuButton}>
           <TbLayoutBoardSplit size="1.2rem" />
         </div>
       </Tippy>
@@ -549,7 +537,7 @@ function EditorMenu({
       <Tippy content="Toggle Header Cell">
         <div
           onClick={() => editor?.chain().focus().toggleHeaderCell().run()}
-          className={`EditorMenuButton`}>
+          className={Styles.EditorMenuButton}>
           <TbTableFilled size="1.2rem" />
         </div>
       </Tippy>
@@ -557,7 +545,7 @@ function EditorMenu({
       <Tippy content="Toggle Header Column">
         <div
           onClick={() => editor?.chain().focus().toggleHeaderColumn().run()}
-          className={`EditorMenuButton`}>
+          className={Styles.EditorMenuButton}>
           <RiLayoutColumnFill size="1.2rem" />
         </div>
       </Tippy>
@@ -565,7 +553,7 @@ function EditorMenu({
       <Tippy content="Toggle Header Row">
         <div
           onClick={() => editor?.chain().focus().toggleHeaderRow().run()}
-          className={`EditorMenuButton`}>
+          className={Styles.EditorMenuButton}>
           <RiLayoutRowFill size="1.2rem" />
         </div>
       </Tippy>
@@ -573,26 +561,26 @@ function EditorMenu({
       <Tippy content="Fix Table">
         <div
           onClick={() => editor?.chain().focus().fixTables().run()}
-          className={`EditorMenuButton`}>
+          className={Styles.EditorMenuButton}>
           <TbTableOptions size="1.2rem" />
         </div>
       </Tippy>
-      <div className="EditorMenuDivider"></div>
+      <div className={Styles.EditorMenuDivider}></div>
 
       {/*image, link and Youtube*/}
-      <Tippy content="Insert Image URL">
-        <div className={`EditorMenuButton`}>
+      <Tippy content="Insert an Image">
+        <div className={Styles.EditorMenuButton}>
           <Popup
             trigger={
-              <button className={`EditorMenuButton`}>
+              <button className={Styles.EditorMenuButton}>
                 <MdImage size="1.25rem" />
               </button>
             }
             nested
             modal>
-            {(close: any) => {
+            {(close) => {
               return (
-                <div className="PopupMain">
+                <div className={Styles.PopupMain}>
                   <input
                     style={{
                       width: '80%',
@@ -610,29 +598,29 @@ function EditorMenu({
                         .run();
                       close();
                     }}
-                    className="InsertImgBtn">
+                    className={Styles.InsertImgBtn}>
                     Insert
                   </button>
                 </div>
-              ) as React.ReactNode;
+              );
             }}
           </Popup>
         </div>
       </Tippy>
 
-      <Tippy content="Link">
-        <div className={`EditorMenuButton`}>
+      <Tippy content="Add a Link">
+        <div className={Styles.EditorMenuButton}>
           <Popup
             trigger={
-              <button className={`EditorMenuButton`}>
+              <button className={Styles.EditorMenuButton}>
                 <MdLink size="1.25rem" />
               </button>
             }
             nested
             modal>
-            {(close: any) => {
+            {(close) => {
               return (
-                <div className="PopupMain">
+                <div className={Styles.PopupMain}>
                   <input
                     style={{
                       width: '80%',
@@ -653,35 +641,36 @@ function EditorMenu({
                         .run();
                       close();
                     }}
-                    className="InsertImgBtn">
+                    className={Styles.InsertImgBtn}>
                     Link
                   </button>
                 </div>
-              ) as React.ReactNode;
+              );
             }}
           </Popup>
         </div>
       </Tippy>
 
-      <Tippy content="Add Youtube Video">
-        <div className={`EditorMenuButton`}>
+      <Tippy content="Insert Youtube Video">
+        <div className={Styles.EditorMenuButton}>
           <Popup
             trigger={
-              <button className={`EditorMenuButton`}>
+              <button className={Styles.EditorMenuButton}>
                 <TbBrandYoutube size="1.25rem" />
               </button>
             }
             nested
             modal>
-            {(close: any) => {
+            {(close) => {
               return (
-                <div className="PopupMain">
+                <div className={Styles.PopupMain}>
                   <input
                     style={{
                       width: '80%',
+                      borderRadius: '0.25rem',
                     }}
                     type="text"
-                    placeholder="Insert a Youtube video URL..."
+                    placeholder="Insert a valid Youtube video URL..."
                     ref={yt}
                   />
                   <div
@@ -745,11 +734,11 @@ function EditorMenu({
                         .run();
                       close();
                     }}
-                    className="InsertImgBtn">
+                    className={Styles.InsertImgBtn}>
                     Add Youtube Video
                   </button>
                 </div>
-              ) as React.ReactNode;
+              );
             }}
           </Popup>
         </div>
@@ -759,7 +748,7 @@ function EditorMenu({
       <Tippy content="More Stuff">
         <div
           onClick={() => setExMenuOpen(!exMenuOpen)}
-          className="EditorMenuButton ExBtn">
+          className={`${Styles.EditorMenuButton} ${Styles.ExBtn}`}>
           {exMenuOpen ? (
             <RxTriangleUp size="1.25rem" />
           ) : (
