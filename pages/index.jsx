@@ -2,7 +2,6 @@ import Styles from '../styles/index.module.css';
 import { useState } from 'react';
 import Navbar from './../components/Navbar';
 import RichEditor from './../components/Editor';
-import GoogleFontLoader from 'react-google-font-loader';
 import Buttons from './../components/Buttons';
 
 export default function App() {
