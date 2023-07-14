@@ -137,9 +137,6 @@ export default function RichEditor({ setHTML, initHTML }) {
         setExMenuOpen={setExMenuOpen}
         exMenuOpen={exMenuOpen}
       />
-      <div className={Styles.Content}>
-        <EditorContent editor={editor} />
-      </div>
     </div>
   );
 }

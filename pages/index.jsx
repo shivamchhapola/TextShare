@@ -28,7 +28,7 @@ export default function App() {
   return (
     <div className={Styles.App}>
       <Navbar />
-
+      <RichEditor setHTML={setHTML} initHTML={initHTML} />
       <Buttons HTML={HTML} />
     </div>
   );
