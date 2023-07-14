@@ -116,3 +116,9 @@
   padding: 2rem;
   gap: 1rem;
 }
+
+@media only screen and (max-width: 786px) {
+  .Editor {
+    width: 90vw;
+  }
+}

@@ -100,3 +100,13 @@
     transform: rotate(360deg);
   }
 }
+
+@media only screen and (max-width: 786px) {
+  .Title {
+    display: none;
+  }
+  .Menu {
+    width: 100%;
+    justify-content: space-evenly;
+  }
+}
