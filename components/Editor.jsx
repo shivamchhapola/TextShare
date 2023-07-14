@@ -77,7 +77,7 @@ import {
 import Tippy from '@tippyjs/react';
 import Popup from 'reactjs-popup';
 
-export default function RichEditor({ setHTML, initHTML }) {
+export default function RichEditor({ setHTML }) {
   //open extened menu
   const [exMenuOpen, setExMenuOpen] = useState(false);
 
