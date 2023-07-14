@@ -143,7 +143,11 @@ export default function RichEditor({ setHTML, initHTML }) {
         exMenuOpen={exMenuOpen}
         editorRef={editorRef}
       />
-      <div className={Styles.Content}>
+      <div
+        className={Styles.Content}
+        onClick={() => {
+          editor?.chain().focus().run();
+        }}>
         <EditorContent editor={editor} />
       </div>
     </div>
