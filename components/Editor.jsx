@@ -117,15 +117,11 @@ export default function RichEditor({ setHTML, initHTML }) {
         types: ['heading', 'paragraph'],
       }),
     ],
-    content: initHTML,
+    content: '<p>Hello World</p>',
     onUpdate({ editor }) {
       setHTML(editor.getHTML());
     },
   });
-
-  useEffect(() => {
-    editor?.commands.setContent(initHTML);
-  }, [initHTML]);
 
   if (!editor) return null;
 
