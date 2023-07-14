@@ -231,7 +231,7 @@ function EditorMenu({ editor, setExMenuOpen, exMenuOpen, editorRef }) {
   return (
     <div className={Styles.EditorMenu}>
       {/*Undo and Redo*/}
-      <Tippy content="Undo">
+      <div content="Undo">
         <div
           onClick={() => editor?.chain().focus().undo().run()}
           className={`${Styles.EditorMenuButton} ${
@@ -239,7 +239,7 @@ function EditorMenu({ editor, setExMenuOpen, exMenuOpen, editorRef }) {
           }`}>
           <MdUndo size="1.25rem" />
         </div>
-      </Tippy>
+      </div>
       <div content="Redo">
         <div
           onClick={() => editor?.chain().focus().redo().run()}
