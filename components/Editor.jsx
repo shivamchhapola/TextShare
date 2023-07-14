@@ -132,11 +132,9 @@ export default function RichEditor({ setHTML, initHTML }) {
           ? { '--EditorMenuHeight': 'auto' }
           : { '--EditorMenuHeight': '1.7rem' }
       }>
-      <EditorMenu
-        editor={editor}
-        setExMenuOpen={setExMenuOpen}
-        exMenuOpen={exMenuOpen}
-      />
+      <div className={Styles.Content}>
+        <EditorContent editor={editor} />
+      </div>
     </div>
   );
 }
