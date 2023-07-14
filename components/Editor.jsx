@@ -75,6 +75,7 @@ import {
 
 //Tooltip and Popup
 import Popup from 'reactjs-popup';
+import Tippy from '@tippyjs/react';
 
 export default function RichEditor({ setHTML, initHTML }) {
   //open extened menu
@@ -230,7 +231,7 @@ function EditorMenu({ editor, setExMenuOpen, exMenuOpen, editorRef }) {
   return (
     <div className={Styles.EditorMenu}>
       {/*Undo and Redo*/}
-      <div content="Undo">
+      <Tippy content="Undo">
         <div
           onClick={() => editor?.chain().focus().undo().run()}
           className={`${Styles.EditorMenuButton} ${
@@ -238,7 +239,7 @@ function EditorMenu({ editor, setExMenuOpen, exMenuOpen, editorRef }) {
           }`}>
           <MdUndo size="1.25rem" />
         </div>
-      </div>
+      </Tippy>
       <div content="Redo">
         <div
           onClick={() => editor?.chain().focus().redo().run()}
