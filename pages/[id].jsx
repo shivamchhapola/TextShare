@@ -30,7 +30,7 @@ export default function OpenText() {
   }
 
   async function copyAndEdit() {
-    await router.push(`/?getData=true&id=${id}`);
+    //await router.push(`/?getData=true&id=${id}`);
   }
 
   useEffect(() => {

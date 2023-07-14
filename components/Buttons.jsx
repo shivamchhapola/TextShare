@@ -18,15 +18,15 @@ export default function Buttons({ HTML }) {
       body: HTML,
     })
       .then(async (res) => {
-        router.push(`/${(await res.json()).id}`);
-        setBtnActive(true);
+        await router.push(`/${(await res.json()).id}`);
+        return setBtnActive(true);
       })
       .catch((e) => console.log(e));
   };
 
-  const onOpenText = () => {
+  const onOpenText = async () => {
     if (!id.current) return;
-    router.push(`/${id.current.value}`);
+    return await router.push(`/${id.current.value}`);
   };
 
   return (
