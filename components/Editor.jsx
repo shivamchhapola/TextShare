@@ -82,7 +82,7 @@ export default function RichEditor({ setHTML, initHTML }) {
   const [exMenuOpen, setExMenuOpen] = useState(false);
 
   //Editor Ref for fullscreen
-  const editorRef = useRef(null);
+  //const editorRef = useRef(null);
 
   //Editor config
   const editor = useEditor({
@@ -117,7 +117,7 @@ export default function RichEditor({ setHTML, initHTML }) {
         types: ['heading', 'paragraph'],
       }),
     ],
-    content: initHTML,
+    content: initHTML ?? '<p>Start writing here...</p>',
     onUpdate({ editor }) {
       setHTML(editor.getHTML());
     },
@@ -125,14 +125,13 @@ export default function RichEditor({ setHTML, initHTML }) {
 
   useEffect(() => {
     console.log('This Works: ' + initHTML);
-    editor?.commands.setContent(initHTML);
+    if (initHTML) editor?.commands.setContent(initHTML);
   }, [initHTML]);
 
   if (!editor) return null;
 
   return (
     <div
-      ref={editorRef}
       className={Styles.Editor}
       style={
         exMenuOpen
@@ -143,7 +142,6 @@ export default function RichEditor({ setHTML, initHTML }) {
         editor={editor}
         setExMenuOpen={setExMenuOpen}
         exMenuOpen={exMenuOpen}
-        editorRef={editorRef}
       />
       <div
         className={Styles.Content}
@@ -163,7 +161,8 @@ function EditorMenu({ editor, setExMenuOpen, exMenuOpen, editorRef }) {
   const ytw = useRef(null);
   const yth = useRef(null);
 
-  const [isFullScreen, setIsFullScreen] = useState(false);
+  {
+    /*const [isFullScreen, setIsFullScreen] = useState(false);
 
   const toggleFullScreen = () => {
     const element = editorRef.current;
@@ -227,7 +226,8 @@ function EditorMenu({ editor, setExMenuOpen, exMenuOpen, editorRef }) {
         handleFullScreenChange
       );
     };
-  }, []);
+  }, []); */
+  }
 
   return (
     <div className={Styles.EditorMenu}>
@@ -829,7 +829,7 @@ function EditorMenu({ editor, setExMenuOpen, exMenuOpen, editorRef }) {
       </Tippy>
       <div className={Styles.EditorMenuDivider}></div>
 
-      {/*FullScreen*/}
+      {/*FullScreen
       <Tippy content="FullScreen">
         <div
           onClick={toggleFullScreen}
