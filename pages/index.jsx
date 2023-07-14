@@ -7,7 +7,7 @@ import { useRouter } from 'next/router';
 
 export default function App() {
   const router = useRouter();
-  const getData = router.query.getData || false;
+  const getData = false;
   const [HTML, setHTML] = useState('');
   const [initHTML, setInitHTML] = useState('<p>Start Writing here...</p>');
 

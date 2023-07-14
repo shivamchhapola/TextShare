@@ -161,8 +161,7 @@ function EditorMenu({ editor, setExMenuOpen, exMenuOpen, editorRef }) {
   const yt = useRef(null);
   const ytw = useRef(null);
   const yth = useRef(null);
-  {
-    /*
+
   const [isFullScreen, setIsFullScreen] = useState(false);
 
   const toggleFullScreen = () => {
@@ -227,8 +226,7 @@ function EditorMenu({ editor, setExMenuOpen, exMenuOpen, editorRef }) {
         handleFullScreenChange
       );
     };
-  }, []); */
-  }
+  }, []);
 
   return (
     <div className={Styles.EditorMenu}>
@@ -830,7 +828,7 @@ function EditorMenu({ editor, setExMenuOpen, exMenuOpen, editorRef }) {
       </Tippy>
       <div className={Styles.EditorMenuDivider}></div>
 
-      {/*FullScreen
+      {/*FullScreen*/}
       <Tippy content="FullScreen">
         <div
           onClick={toggleFullScreen}
@@ -841,7 +839,7 @@ function EditorMenu({ editor, setExMenuOpen, exMenuOpen, editorRef }) {
             <RxEnterFullScreen size="1.2rem" />
           )}
         </div>
-          </Tippy>*/}
+      </Tippy>
 
       {/*Extend menu*/}
       <Tippy content="More Stuff">
