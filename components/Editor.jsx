@@ -23,8 +23,6 @@ import TextStyle from '@tiptap/extension-text-style';
 
 //Icons
 import {
-  RxEnterFullScreen,
-  RxExitFullScreen,
   RxFontBold,
   RxFontItalic,
   RxStrikethrough,
@@ -81,9 +79,6 @@ export default function RichEditor({ setHTML, initHTML }) {
   //open extened menu
   const [exMenuOpen, setExMenuOpen] = useState(false);
 
-  //Editor Ref for fullscreen
-  //const editorRef = useRef(null);
-
   //Editor config
   const editor = useEditor({
     extensions: [
@@ -117,15 +112,14 @@ export default function RichEditor({ setHTML, initHTML }) {
         types: ['heading', 'paragraph'],
       }),
     ],
-    content: initHTML ?? '<p>Start writing here...</p>',
+    content: initHTML,
     onUpdate({ editor }) {
       setHTML(editor.getHTML());
     },
   });
 
   useEffect(() => {
-    console.log('This Works: ' + initHTML);
-    if (initHTML) editor?.commands.setContent(initHTML);
+    editor?.commands.setContent(initHTML);
   }, [initHTML]);
 
   if (!editor) return null;
@@ -143,91 +137,19 @@ export default function RichEditor({ setHTML, initHTML }) {
         setExMenuOpen={setExMenuOpen}
         exMenuOpen={exMenuOpen}
       />
-      <div
-        className={Styles.Content}
-        onClick={() => {
-          editor?.chain().focus().run();
-        }}>
+      <div className={Styles.Content}>
         <EditorContent editor={editor} />
       </div>
     </div>
   );
 }
 
-function EditorMenu({ editor, setExMenuOpen, exMenuOpen, editorRef }) {
+function EditorMenu({ editor, setExMenuOpen, exMenuOpen }) {
   const image = useRef(null);
   const link = useRef(null);
   const yt = useRef(null);
   const ytw = useRef(null);
   const yth = useRef(null);
-
-  {
-    /*const [isFullScreen, setIsFullScreen] = useState(false);
-
-  const toggleFullScreen = () => {
-    const element = editorRef.current;
-
-    if (!isFullScreen) {
-      if (element.requestFullscreen) {
-        element.requestFullscreen();
-      } else if (element.mozRequestFullScreen) {
-        // Firefox
-        element.mozRequestFullScreen();
-      } else if (element.webkitRequestFullscreen) {
-        // Chrome, Safari, and Opera
-        element.webkitRequestFullscreen();
-      } else if (element.msRequestFullscreen) {
-        // Internet Explorer/Edge
-        element.msRequestFullscreen();
-      }
-    } else {
-      if (document.exitFullscreen) {
-        document.exitFullscreen();
-      } else if (document.mozCancelFullScreen) {
-        // Firefox
-        document.mozCancelFullScreen();
-      } else if (document.webkitExitFullscreen) {
-        // Chrome, Safari, and Opera
-        document.webkitExitFullscreen();
-      } else if (document.msExitFullscreen) {
-        // Internet Explorer/Edge
-        document.msExitFullscreen();
-      }
-    }
-  };
-
-  const handleFullScreenChange = () => {
-    setIsFullScreen(
-      document.fullscreenElement ||
-        document.mozFullScreenElement ||
-        document.webkitFullscreenElement ||
-        document.msFullscreenElement
-    );
-  };
-
-  useEffect(() => {
-    document.addEventListener('fullscreenchange', handleFullScreenChange);
-    document.addEventListener('mozfullscreenchange', handleFullScreenChange);
-    document.addEventListener('webkitfullscreenchange', handleFullScreenChange);
-    document.addEventListener('msfullscreenchange', handleFullScreenChange);
-
-    return () => {
-      document.removeEventListener('fullscreenchange', handleFullScreenChange);
-      document.removeEventListener(
-        'mozfullscreenchange',
-        handleFullScreenChange
-      );
-      document.removeEventListener(
-        'webkitfullscreenchange',
-        handleFullScreenChange
-      );
-      document.removeEventListener(
-        'msfullscreenchange',
-        handleFullScreenChange
-      );
-    };
-  }, []); */
-  }
 
   return (
     <div className={Styles.EditorMenu}>
@@ -825,20 +747,6 @@ function EditorMenu({ editor, setExMenuOpen, exMenuOpen, editorRef }) {
               );
             }}
           </Popup>
-        </div>
-      </Tippy>
-      <div className={Styles.EditorMenuDivider}></div>
-
-      {/*FullScreen
-      <Tippy content="FullScreen">
-        <div
-          onClick={toggleFullScreen}
-          className={`${Styles.EditorMenuButton}`}>
-          {isFullScreen ? (
-            <RxExitFullScreen size="1.2rem" />
-          ) : (
-            <RxEnterFullScreen size="1.2rem" />
-          )}
         </div>
       </Tippy>
 
