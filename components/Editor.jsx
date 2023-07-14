@@ -72,7 +72,6 @@ import {
 } from 'react-icons/ri';
 
 //Tooltip and Popup
-import Tippy from '@tippyjs/react';
 import Popup from 'reactjs-popup';
 
 export default function RichEditor({ setHTML, initHTML }) {
@@ -154,7 +153,7 @@ function EditorMenu({ editor, setExMenuOpen, exMenuOpen }) {
   return (
     <div className={Styles.EditorMenu}>
       {/*Undo and Redo*/}
-      <Tippy content="Undo">
+      <div content="Undo">
         <div
           onClick={() => editor?.chain().focus().undo().run()}
           className={`${Styles.EditorMenuButton} ${
@@ -162,8 +161,8 @@ function EditorMenu({ editor, setExMenuOpen, exMenuOpen }) {
           }`}>
           <MdUndo size="1.25rem" />
         </div>
-      </Tippy>
-      <Tippy content="Redo">
+      </div>
+      <div content="Redo">
         <div
           onClick={() => editor?.chain().focus().redo().run()}
           className={`${Styles.EditorMenuButton} ${
@@ -171,11 +170,11 @@ function EditorMenu({ editor, setExMenuOpen, exMenuOpen }) {
           }`}>
           <MdRedo size="1.25rem" />
         </div>
-      </Tippy>
+      </div>
       <div className={Styles.EditorMenuDivider}></div>
 
       {/*Bold, Italic and underline*/}
-      <Tippy content="Bold">
+      <div content="Bold">
         <div
           onClick={() => editor?.chain().focus().toggleBold().run()}
           className={`${Styles.EditorMenuButton} ${
@@ -183,9 +182,9 @@ function EditorMenu({ editor, setExMenuOpen, exMenuOpen }) {
           }`}>
           <RxFontBold size="1.25rem" />
         </div>
-      </Tippy>
+      </div>
 
-      <Tippy content="Italic">
+      <div content="Italic">
         <div
           onClick={() => editor?.chain().focus().toggleItalic().run()}
           className={`${Styles.EditorMenuButton} ${
@@ -193,9 +192,9 @@ function EditorMenu({ editor, setExMenuOpen, exMenuOpen }) {
           }`}>
           <RxFontItalic size="1.25rem" />
         </div>
-      </Tippy>
+      </div>
 
-      <Tippy content="Underline">
+      <div content="Underline">
         <div
           onClick={() => editor?.chain().focus().toggleUnderline().run()}
           className={`${Styles.EditorMenuButton} ${
@@ -203,11 +202,11 @@ function EditorMenu({ editor, setExMenuOpen, exMenuOpen }) {
           }`}>
           <RxUnderline size="1.25rem" />
         </div>
-      </Tippy>
+      </div>
       <div className={Styles.EditorMenuDivider}></div>
 
       {/*Text Align*/}
-      <Tippy content="Left">
+      <div content="Left">
         <div
           onClick={() => editor?.chain().focus().setTextAlign('left').run()}
           className={`${Styles.EditorMenuButton} ${
@@ -217,9 +216,9 @@ function EditorMenu({ editor, setExMenuOpen, exMenuOpen }) {
           }`}>
           <RxTextAlignLeft size="1.2rem" />
         </div>
-      </Tippy>
+      </div>
 
-      <Tippy content="Center">
+      <div content="Center">
         <div
           onClick={() => editor?.chain().focus().setTextAlign('center').run()}
           className={`${Styles.EditorMenuButton} ${
@@ -229,9 +228,9 @@ function EditorMenu({ editor, setExMenuOpen, exMenuOpen }) {
           }`}>
           <RxTextAlignCenter size="1.2rem" />
         </div>
-      </Tippy>
+      </div>
 
-      <Tippy content="Right">
+      <div content="Right">
         <div
           onClick={() => editor?.chain().focus().setTextAlign('right').run()}
           className={`${Styles.EditorMenuButton} ${
@@ -241,9 +240,9 @@ function EditorMenu({ editor, setExMenuOpen, exMenuOpen }) {
           }`}>
           <RxTextAlignRight size="1.2rem" />
         </div>
-      </Tippy>
+      </div>
 
-      <Tippy content="Justify">
+      <div content="Justify">
         <div
           onClick={() => editor?.chain().focus().setTextAlign('justify').run()}
           className={`${Styles.EditorMenuButton} ${
@@ -253,11 +252,11 @@ function EditorMenu({ editor, setExMenuOpen, exMenuOpen }) {
           }`}>
           <RxTextAlignJustify size="1.2rem" />
         </div>
-      </Tippy>
+      </div>
       <div className={Styles.EditorMenuDivider}></div>
 
       {/*Strikethrough, Sub and Superscript*/}
-      <Tippy content="Strikethrough">
+      <div content="Strikethrough">
         <div
           onClick={() => editor?.chain().focus().toggleStrike().run()}
           className={`${Styles.EditorMenuButton} ${
@@ -265,9 +264,9 @@ function EditorMenu({ editor, setExMenuOpen, exMenuOpen }) {
           }`}>
           <RxStrikethrough size="1.25rem" />
         </div>
-      </Tippy>
+      </div>
 
-      <Tippy content="Subscript">
+      <div content="Subscript">
         <div
           onClick={() => editor?.chain().focus().toggleSubscript().run()}
           className={`${Styles.EditorMenuButton} ${
@@ -275,9 +274,9 @@ function EditorMenu({ editor, setExMenuOpen, exMenuOpen }) {
           }`}>
           <LuSubscript size="1.25rem" />
         </div>
-      </Tippy>
+      </div>
 
-      <Tippy content="Superscript">
+      <div content="Superscript">
         <div
           onClick={() => editor?.chain().focus().toggleSuperscript().run()}
           className={`${Styles.EditorMenuButton} ${
@@ -285,11 +284,11 @@ function EditorMenu({ editor, setExMenuOpen, exMenuOpen }) {
           }`}>
           <LuSuperscript size="1.25rem" />
         </div>
-      </Tippy>
+      </div>
       <div className={Styles.EditorMenuDivider}></div>
 
       {/*Color and Text Heading*/}
-      <Tippy content="Text Color">
+      <div content="Text Color">
         <label
           className={Styles.EditorMenuButton}
           style={{
@@ -305,9 +304,9 @@ function EditorMenu({ editor, setExMenuOpen, exMenuOpen }) {
           />
           <MdFormatColorText size="1.2rem" />
         </label>
-      </Tippy>
+      </div>
 
-      <Tippy content="Highlight">
+      <div content="Highlight">
         <label
           className={Styles.EditorMenuButton}
           style={{
@@ -326,9 +325,9 @@ function EditorMenu({ editor, setExMenuOpen, exMenuOpen }) {
           />
           <TbHighlight size="1.2rem" />
         </label>
-      </Tippy>
+      </div>
 
-      <Tippy content="Heading">
+      <div content="Heading">
         <select
           defaultValue={0}
           onChange={(e) => {
@@ -362,11 +361,396 @@ function EditorMenu({ editor, setExMenuOpen, exMenuOpen }) {
             Heading 6
           </option>
         </select>
-      </Tippy>
+      </div>
       <div className={Styles.EditorMenuDivider}></div>
 
+      {/*Lists*/}
+      <div content="Toggle Bullet List">
+        <div
+          onClick={() => editor?.chain().focus().toggleBulletList().run()}
+          className={`${Styles.EditorMenuButton} ${
+            editor?.isActive('bulletList') ? Styles.EditorMenuButtonActive : ''
+          }`}>
+          <MdFormatListBulleted size="1.25rem" />
+        </div>
+      </div>
+
+      <div content="Toggle Ordered List">
+        <div
+          onClick={() => editor?.chain().focus().toggleOrderedList().run()}
+          className={`${Styles.EditorMenuButton} ${
+            editor?.isActive('orderedList') ? Styles.EditorMenuButtonActive : ''
+          }`}>
+          <MdFormatListNumbered size="1.25rem" />
+        </div>
+      </div>
+
+      <div content="Add Item">
+        <div
+          onClick={() =>
+            editor?.chain().focus().splitListItem('listItem').run()
+          }
+          className={Styles.EditorMenuButton}>
+          <MdFormatListBulletedAdd size="1.25rem" />
+        </div>
+      </div>
+
+      <div content="Sink List">
+        <div
+          onClick={() => editor?.chain().focus().sinkListItem('listItem').run()}
+          className={Styles.EditorMenuButton}>
+          <BsListNested size="1.25rem" />
+        </div>
+      </div>
+
+      <div content="Lift List">
+        <div
+          onClick={() => editor?.chain().focus().liftListItem('listItem').run()}
+          className={Styles.EditorMenuButton}>
+          <LuListTree size="1.25rem" />
+        </div>
+      </div>
+      <div className={Styles.EditorMenuDivider}></div>
+
+      {/*Blockquote, Code and CodeBlock*/}
+      <div content="Blockquote">
+        <div
+          onClick={() => editor?.chain().focus().toggleBlockquote().run()}
+          className={`${Styles.EditorMenuButton} ${
+            editor?.isActive('blockquote') ? Styles.EditorMenuButtonActive : ''
+          }`}>
+          <TbBlockquote size="1.25rem" />
+        </div>
+      </div>
+
+      <div content="Horizontal Rule">
+        <div
+          onClick={() => editor?.chain().focus().setHorizontalRule().run()}
+          className={Styles.EditorMenuButton}>
+          <MdHorizontalRule size="1.25rem" />
+        </div>
+      </div>
+
+      <div content="Code">
+        <div
+          onClick={() => editor?.chain().focus().toggleCode().run()}
+          className={`${Styles.EditorMenuButton} ${
+            editor?.isActive('code') ? Styles.EditorMenuButtonActive : ''
+          }`}>
+          <MdCode size="1.25rem" />
+        </div>
+      </div>
+
+      <div content="Codeblock">
+        <div
+          onClick={() => editor?.chain().focus().toggleCodeBlock().run()}
+          className={`${Styles.EditorMenuButton} ${
+            editor?.isActive('codeBlock') ? Styles.EditorMenuButtonActive : ''
+          }`}>
+          <MdTerminal size="1.25rem" />
+        </div>
+      </div>
+
+      <div content="Hardbreak">
+        <div
+          onClick={() => editor?.chain().focus().setHardBreak().run()}
+          className={Styles.EditorMenuButton}>
+          <VscNewline size="1.25rem" />
+        </div>
+      </div>
+      <div className={Styles.EditorMenuDivider}></div>
+
+      {/*Table Stuff*/}
+      <div content="Insert Table">
+        <div
+          onClick={() =>
+            editor
+              ?.chain()
+              .focus()
+              .insertTable({ rows: 3, cols: 3, withHeaderRow: true })
+              .run()
+          }
+          className={Styles.EditorMenuButton}>
+          <TbTablePlus size="1.125rem" />
+        </div>
+      </div>
+
+      <div content="Add Column before">
+        <div
+          onClick={() => editor?.chain().focus().addColumnBefore().run()}
+          className={Styles.EditorMenuButton}>
+          <RiInsertColumnLeft size="1.2rem" />
+        </div>
+      </div>
+
+      <div content="Add Column after">
+        <div
+          onClick={() => editor?.chain().focus().addColumnAfter().run()}
+          className={Styles.EditorMenuButton}>
+          <RiInsertColumnRight size="1.2rem" />
+        </div>
+      </div>
+
+      <div content="Remove Column">
+        <div
+          onClick={() => editor?.chain().focus().deleteColumn().run()}
+          className={Styles.EditorMenuButton}>
+          <RiDeleteColumn size="1.2rem" />
+        </div>
+      </div>
+
+      <div content="Add Row before">
+        <div
+          onClick={() => editor?.chain().focus().addRowBefore().run()}
+          className={Styles.EditorMenuButton}>
+          <RiInsertRowTop size="1.2rem" />
+        </div>
+      </div>
+
+      <div content="Add Row after">
+        <div
+          onClick={() => editor?.chain().focus().addRowAfter().run()}
+          className={Styles.EditorMenuButton}>
+          <RiInsertRowBottom size="1.2rem" />
+        </div>
+      </div>
+
+      <div content="Remove Row">
+        <div
+          onClick={() => editor?.chain().focus().deleteRow().run()}
+          className={Styles.EditorMenuButton}>
+          <RiDeleteRow size="1.2rem" />
+        </div>
+      </div>
+
+      <div content="Remove Table">
+        <div
+          onClick={() => editor?.chain().focus().deleteTable().run()}
+          className={Styles.EditorMenuButton}>
+          <TbTableOff size="1.2rem" />
+        </div>
+      </div>
+
+      <div content="Merge or Split Cell">
+        <div
+          onClick={() => editor?.chain().focus().mergeOrSplit().run()}
+          className={Styles.EditorMenuButton}>
+          <TbLayoutBoardSplit size="1.2rem" />
+        </div>
+      </div>
+
+      <div content="Toggle Header Cell">
+        <div
+          onClick={() => editor?.chain().focus().toggleHeaderCell().run()}
+          className={Styles.EditorMenuButton}>
+          <TbTableFilled size="1.2rem" />
+        </div>
+      </div>
+
+      <div content="Toggle Header Column">
+        <div
+          onClick={() => editor?.chain().focus().toggleHeaderColumn().run()}
+          className={Styles.EditorMenuButton}>
+          <RiLayoutColumnFill size="1.2rem" />
+        </div>
+      </div>
+
+      <div content="Toggle Header Row">
+        <div
+          onClick={() => editor?.chain().focus().toggleHeaderRow().run()}
+          className={Styles.EditorMenuButton}>
+          <RiLayoutRowFill size="1.2rem" />
+        </div>
+      </div>
+
+      <div content="Fix Table">
+        <div
+          onClick={() => editor?.chain().focus().fixTables().run()}
+          className={Styles.EditorMenuButton}>
+          <TbTableOptions size="1.2rem" />
+        </div>
+      </div>
+      <div className={Styles.EditorMenuDivider}></div>
+
+      {/*image, link and Youtube*/}
+      <div content="Insert an Image">
+        <div className={Styles.EditorMenuButton}>
+          <Popup
+            trigger={
+              <button className={Styles.EditorMenuButton}>
+                <MdImage size="1.25rem" />
+              </button>
+            }
+            nested
+            modal>
+            {(close) => {
+              return (
+                <div className={Styles.PopupMain}>
+                  <input
+                    style={{
+                      width: '80%',
+                    }}
+                    ref={image}
+                    type="text"
+                    placeholder="Insert a valid Image URL..."
+                  />
+                  <button
+                    onClick={() => {
+                      editor
+                        ?.chain()
+                        .focus()
+                        .setImage({ src: image.current?.value ?? '' })
+                        .run();
+                      close();
+                    }}
+                    className={Styles.InsertImgBtn}>
+                    Insert
+                  </button>
+                </div>
+              );
+            }}
+          </Popup>
+        </div>
+      </div>
+
+      <div content="Add a Link">
+        <div className={Styles.EditorMenuButton}>
+          <Popup
+            trigger={
+              <button className={Styles.EditorMenuButton}>
+                <MdLink size="1.25rem" />
+              </button>
+            }
+            nested
+            modal>
+            {(close) => {
+              return (
+                <div className={Styles.PopupMain}>
+                  <input
+                    style={{
+                      width: '80%',
+                    }}
+                    ref={link}
+                    type="text"
+                    placeholder="Insert a valid Link..."
+                  />
+                  <button
+                    onClick={() => {
+                      editor
+                        ?.chain()
+                        .focus()
+                        .setLink({
+                          href: link.current?.value ?? '',
+                          target: '_blank',
+                        })
+                        .run();
+                      close();
+                    }}
+                    className={Styles.InsertImgBtn}>
+                    Link
+                  </button>
+                </div>
+              );
+            }}
+          </Popup>
+        </div>
+      </div>
+
+      <div content="Insert Youtube Video">
+        <div className={Styles.EditorMenuButton}>
+          <Popup
+            trigger={
+              <button className={Styles.EditorMenuButton}>
+                <TbBrandYoutube size="1.25rem" />
+              </button>
+            }
+            nested
+            modal>
+            {(close) => {
+              return (
+                <div className={Styles.PopupMain}>
+                  <input
+                    style={{
+                      width: '80%',
+                      borderRadius: '0.25rem',
+                    }}
+                    type="text"
+                    placeholder="Insert a valid Youtube video URL..."
+                    ref={yt}
+                  />
+                  <div
+                    style={{
+                      width: '80%',
+                      display: 'flex',
+                      justifyContent: 'space-around',
+                      flexWrap: 'wrap',
+                    }}>
+                    <div
+                      style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '0.5rem',
+                        marginTop: '0.25rem',
+                      }}>
+                      Width:
+                      <input
+                        type="number"
+                        min="320"
+                        max="1024"
+                        placeholder="in px"
+                        ref={ytw}
+                      />
+                    </div>
+                    <div
+                      style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '0.5rem',
+                        marginTop: '0.25rem',
+                      }}>
+                      Height:
+                      <input
+                        type="number"
+                        min="180"
+                        max="720"
+                        placeholder="in px"
+                        ref={yth}
+                      />
+                    </div>
+                  </div>
+                  <button
+                    onClick={() => {
+                      editor
+                        ?.chain()
+                        .focus()
+                        .setYoutubeVideo({
+                          src: yt.current?.value ?? '',
+                          width:
+                            Math.max(
+                              320,
+                              parseInt(ytw.current?.value ?? '', 10)
+                            ) || 640,
+                          height:
+                            Math.max(
+                              180,
+                              parseInt(yth.current?.value ?? '', 10)
+                            ) || 480,
+                        })
+                        .run();
+                      close();
+                    }}
+                    className={Styles.InsertImgBtn}>
+                    Add Youtube Video
+                  </button>
+                </div>
+              );
+            }}
+          </Popup>
+        </div>
+      </div>
+
       {/*Extend menu*/}
-      <Tippy content="More Stuff">
+      <div content="More Stuff">
         <div
           onClick={() => setExMenuOpen(!exMenuOpen)}
           className={`${Styles.EditorMenuButton} ${Styles.ExBtn}`}>
@@ -376,7 +760,7 @@ function EditorMenu({ editor, setExMenuOpen, exMenuOpen }) {
             <RxTriangleDown size="1.25rem" />
           )}
         </div>
-      </Tippy>
+      </div>
     </div>
   );
 }
