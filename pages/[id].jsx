@@ -29,8 +29,8 @@ export default function OpenText() {
     setCopySuccess('Copied');
   }
 
-  function copyAndEdit() {
-    router.push(`/?getData=true&id=${id}`);
+  async function copyAndEdit() {
+    await router.push(`/?getData=true&id=${id}`);
   }
 
   useEffect(() => {

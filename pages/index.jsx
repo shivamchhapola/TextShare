@@ -7,7 +7,7 @@ import { useRouter } from 'next/router';
 
 export default function App() {
   const router = useRouter();
-  const getData = false;
+  const getData = router.query.getData || false;
   const [HTML, setHTML] = useState('');
   const [initHTML, setInitHTML] = useState('<p>Start Writing here...</p>');
 
@@ -28,7 +28,6 @@ export default function App() {
   return (
     <div className={Styles.App}>
       <Navbar />
-      <RichEditor setHTML={setHTML} initHTML={initHTML} />
       <Buttons HTML={HTML} />
     </div>
   );
