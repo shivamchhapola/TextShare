@@ -73,3 +73,24 @@
   bottom: 0rem;
   box-shadow: var(--SocialDropShadowHover);
 }
+
+@media only screen and (max-width: 786px) {
+  .Navbar {
+    height: 2.25rem;
+    align-items: center;
+    justify-content: center;
+  }
+  .Title {
+    width: 100%;
+    height: 100%;
+    font-size: large;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    left: 0;
+  }
+  .Socials {
+    display: none;
+  }
+}

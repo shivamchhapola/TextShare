@@ -1,12 +1,17 @@
 .Buttons {
-  height: 5rem;
+  height: fit-content;
   width: 70vw;
   display: flex;
   justify-content: space-between;
   padding: 1rem;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem 3rem;
 }
 
 .Buttons > button {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
   width: 10rem;
   border: 0.2rem solid black;
   box-shadow: 0.25rem 0.25rem black;
@@ -18,7 +23,6 @@
 
 .Buttons > button:hover,
 .Buttons > button:disabled {
-  cursor: pointer;
   box-shadow: none;
   transform: translate(0.25rem, 0.25rem);
 }
@@ -37,4 +41,13 @@
 
 .TextShare:disabled {
   background: #497749;
+}
+
+@media only screen and (max-width: 786px) {
+  .Buttons {
+    justify-content: space-between;
+  }
+  .Buttons > button {
+    width: 100%;
+  }
 }

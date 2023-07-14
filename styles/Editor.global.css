@@ -11,10 +11,7 @@
 }
 
 .ProseMirror {
-  height: 55vh;
-  overflow: auto;
   background-color: white;
-  padding: 0.5rem;
   scrollbar-width: 10px;
   scrollbar-color: #e3dff2;
   scrollbar-track-color: #e3dff2;
@@ -55,22 +52,6 @@ hr.ProseMirror-selectednode {
 
 .ProseMirror:focus {
   outline: none;
-}
-
-.ProseMirror::-webkit-scrollbar {
-  width: 10px;
-}
-
-.ProseMirror::-webkit-scrollbar-track {
-  background: #e3dff2;
-}
-
-.ProseMirror::-webkit-scrollbar-thumb {
-  background: #808080;
-}
-
-.ProseMirror::-webkit-scrollbar-thumb:hover {
-  background: #505050;
 }
 
 .ProseMirror table {

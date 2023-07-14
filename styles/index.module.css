@@ -7,6 +7,19 @@
   align-items: center;
   flex-direction: column;
   gap: 1.5rem;
+  overflow-y: scroll;
 
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
   --EditorMenuHeight: 2rem;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.App::-webkit-scrollbar {
+  display: none;
+}
+
+@media only screen and (max-width: 786px) {
+  .App {
+  }
 }

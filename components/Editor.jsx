@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 import Styles from '../styles/Editor.module.css'; //css styles
 
@@ -75,7 +75,7 @@ import {
 import Tippy from '@tippyjs/react';
 import Popup from 'reactjs-popup';
 
-export default function RichEditor({ setHTML }) {
+export default function RichEditor({ setHTML, initHTML }) {
   //open extened menu
   const [exMenuOpen, setExMenuOpen] = useState(false);
 
@@ -112,11 +112,15 @@ export default function RichEditor({ setHTML }) {
         types: ['heading', 'paragraph'],
       }),
     ],
-    content: '<p>Start writing here...</p>',
+    content: initHTML,
     onUpdate({ editor }) {
       setHTML(editor.getHTML());
     },
   });
+
+  useEffect(() => {
+    editor?.commands.setContent(initHTML);
+  }, [initHTML]);
 
   if (!editor) return null;
 
@@ -133,7 +137,9 @@ export default function RichEditor({ setHTML }) {
         setExMenuOpen={setExMenuOpen}
         exMenuOpen={exMenuOpen}
       />
-      <EditorContent editor={editor} />
+      <div className={Styles.Content}>
+        <EditorContent editor={editor} />
+      </div>
     </div>
   );
 }

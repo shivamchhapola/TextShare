@@ -12,11 +12,20 @@
   font-family: 'Public Sans', sans-serif;
 }
 
+.Content {
+  z-index: 10;
+  padding: 0.25rem 0.35rem 0.45rem 0.35rem;
+  height: 55vh;
+  background: white;
+  overflow-y: auto;
+}
+
 .Editor blockquote {
   margin: 1rem;
 }
 
 .EditorMenu {
+  z-index: 9;
   background: #e3dff2;
   height: var(--EditorMenuHeight, 1.7rem);
   display: flex;
