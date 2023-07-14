@@ -77,7 +77,7 @@ import {
 import Tippy from '@tippyjs/react';
 import Popup from 'reactjs-popup';
 
-export default function RichEditor({ setHTML }) {
+export default function RichEditor({ setHTML, initHTML }) {
   //open extened menu
   const [exMenuOpen, setExMenuOpen] = useState(false);
 
@@ -117,11 +117,16 @@ export default function RichEditor({ setHTML }) {
         types: ['heading', 'paragraph'],
       }),
     ],
-    content: '<p>Hello World</p>',
+    content: initHTML,
     onUpdate({ editor }) {
       setHTML(editor.getHTML());
     },
   });
+
+  useEffect(() => {
+    console.log('This Works: ' + initHTML);
+    editor?.commands.setContent(initHTML);
+  }, [initHTML]);
 
   if (!editor) return null;
 
