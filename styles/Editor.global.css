@@ -1,8 +1,24 @@
 .popup-content {
-  padding: 0;
+  width: 40%;
   outline: 0.2rem solid black;
   box-shadow: 0.5rem 0.5rem black;
   border-radius: 0.75rem;
+  margin: auto;
+  background: rgb(255, 255, 255);
+}
+.popup-arrow {
+  color: rgb(255, 255, 255);
+}
+[role='tooltip'].popup-content {
+  width: 200px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 0px 3px;
+}
+
+.popup-overlay {
+  background: rgba(0, 0, 0, 0.5);
+}
+[data-popup='tooltip'].popup-overlay {
+  background: transparent;
 }
 
 .popup-content input {
@@ -106,4 +122,13 @@ hr.ProseMirror-selectednode {
 
 .ProseMirror table p {
   margin: 0;
+}
+
+@media only screen and (max-width: 786px) {
+  .Editor {
+    width: 90vw;
+  }
+  .popup-content {
+    width: 80%;
+  }
 }

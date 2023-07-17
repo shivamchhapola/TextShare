@@ -9,7 +9,6 @@
     "start": "next start"
   },
   "dependencies": {
-    "@tippyjs/react": "^4.2.6",
     "@tiptap/extension-color": "^2.0.3",
     "@tiptap/extension-highlight": "^2.0.3",
     "@tiptap/extension-image": "^2.0.3",
@@ -32,6 +31,7 @@
     "dotenv": "^16.3.1",
     "ioredis": "^5.3.2",
     "next": "^13.4.9",
+    "rc-tooltip": "^6.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-dropdown": "^1.11.0",
@@ -39,7 +39,6 @@
     "react-html-parser": "^2.0.2",
     "react-icons": "^4.10.1",
     "react-select": "^5.7.3",
-    "react-tooltip": "^5.16.1",
     "reactjs-popup": "^2.0.5"
   },
   "devDependencies": {

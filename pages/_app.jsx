@@ -1,7 +1,7 @@
 import '../styles/global.css';
 import '../styles/Editor.global.css';
-import 'reactjs-popup/dist/index.css';
 import 'tippy.js/dist/tippy.css';
+import 'rc-tooltip/assets/bootstrap_white.css';
 import Head from 'next/head';
 
 function App({ Component, pageProps }) {
