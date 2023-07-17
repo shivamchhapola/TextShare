@@ -1,4 +1,4 @@
-# Roundtable Chat 🌐
+# TextShare
 
 TextShare, a Text Sharing website with full-fledged rich text editor built using Next.js, Redis, Vercel and Github. It provides users with a familiar UI, Toggleable full screen(just the editor) and with just two clicks you can share your text to anyone you want.
 
@@ -59,5 +59,5 @@ This project is licensed under the [MIT License](LICENSE).
 ## ⬛ Screenshots
 
 ![Homepage](Screenshots/1.PNG)
-![Fullscreen](Screenshots/2.PNG)
+![Fullscreen](Screenshots/2.png)
 ![Read Text](Screenshots/3.PNG)
