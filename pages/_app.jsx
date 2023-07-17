@@ -1,6 +1,5 @@
 import '../styles/global.css';
 import '../styles/Editor.global.css';
-import 'tippy.js/dist/tippy.css';
 import 'rc-tooltip/assets/bootstrap_white.css';
 import Head from 'next/head';
 
