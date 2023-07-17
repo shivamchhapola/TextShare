@@ -58,6 +58,11 @@ This project is licensed under the [MIT License](LICENSE).
 
 ## ⬛ Screenshots
 
+- Homepage
 ![Homepage](Screenshots/1.PNG)
+
+- Fullscreen Editor
 ![Fullscreen](Screenshots/2.png)
+
+- Read/Open Text
 ![Read Text](Screenshots/3.PNG)
